@@ -4,8 +4,13 @@
 int my_printf(char *format_string, char *param){
 	for(int i=0;i<strlen(format_string);i++){
 		if((format_string[i] == '#') && (format_string[i+1] == 'k')){
-			i++;
-			printf("%s",param);
+		for(int j=0; j<strlen(param);i++{
+			if(islower(param[j]){
+				printf("%c", toupper(param[j]))
+			}else{
+				printf("%c", tolower(param[j]))
+			}
+		}
 		}else
 			putchar(format_string[i]);
 	}
