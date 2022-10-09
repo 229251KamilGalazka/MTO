@@ -7,12 +7,12 @@ int my_printf(char *format_string, char *param)
 {
 	for (int i = 0; i < strlen(format_string); i++)
 	{
-		if ((format_string[i] == '#')
-		&& (format_string[i+1] == '.')
-		&& isdigit(format_string[i+2])
-		&& (format_string[i + 3] == 'k'))
+		if ((format_string[i] == '#') && (format_string[i + 1] == '.') && isdigit(format_string[i + 2]) && (format_string[i + 3] == 'k'))
 		{
-			for (int j = 0; j < atoi(&format_string[i+2]); j++)
+			int len = atoi(&format_string[i + 2]);
+			if (strlen(param) < len)
+				len = strlen(param);
+			for (int j = 0; j < len; j++)
 			{
 				if (islower(param[j]))
 				{
