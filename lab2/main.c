@@ -5,11 +5,34 @@
 
 int my_printf(char *format_string, char *param)
 {
+	int isValid = 0;
+	char array[5];
+
 	for (int i = 0; i < strlen(format_string); i++)
 	{
-		if ((format_string[i] == '#') && (format_string[i + 1] == '.') && isdigit(format_string[i + 2]) && (format_string[i + 3] == 'k'))
+		// if ((format_string[i] == '#') && (format_string[i + 1] == '.') && isdigit(format_string[i + 2]) && (format_string[i + 3] == 'k'))
+		if ((format_string[i] == '#') && (format_string[i + 1] == '.'))
 		{
-			int len = atoi(&format_string[i + 2]);
+			int temp = i + 2;
+			int counter = 0;
+			do{
+				if (isdigit(format_string[temp]))
+				{
+					array[counter] += format_string[temp];
+					temp++;
+					counter++;
+				}
+				else
+				{
+					if (format_string[temp] == 'k' && counter >= 1)
+						isValid = 1;
+					break;
+				}
+			}while (1);
+		}
+		if (isValid == 1)
+		{
+			int len = atoi(array);
 			if (strlen(param) < len)
 				len = strlen(param);
 			for (int j = 0; j < len; j++)

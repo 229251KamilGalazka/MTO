@@ -1,10 +1,34 @@
-totafsdfsf #.17k fdsfsdf
+totafsdfsf 17
+TEST17
+TEST17
+TEST17
+TEST
 totafsd#k fdsfsdf fdfjs
 jfldjfldk # wynik
 fjdfsfds # k alal
-djfjkldsjf QWERT jjjjjj fsfjdljfdlsj flj ldfj
-gjjkdsljflds male jdlkfjdslf
-fjdslkfjdl t tttttt
+djfjkldsjf 0
+0
+0
+0
+0
+0
+0
+0
+0
+
+gjjkdsljflds 0
+0
+0
+0
+
+fjdslkfjdl 0
+0
+0
+
 fjdlsjfkl #.k4 oooolll
 rwrewrew #..k fjdslkjfdl
-fjdlskjfldjflj tEs rewrewrew
+fjdlskjfldjflj 0
+0
+0
+0
+
