@@ -1,14 +1,18 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdlib.h>
 
 int my_printf(char *format_string, char *param)
 {
 	for (int i = 0; i < strlen(format_string); i++)
 	{
-		if ((format_string[i] == '#') && (format_string[i + 1] == 'k'))
+		if ((format_string[i] == '#')
+		&& (format_string[i+1] == '.')
+		&& isdigit(format_string[i+2])
+		&& (format_string[i + 3] == 'k'))
 		{
-			for (int j = 0; j < strlen(param); j++)
+			for (int j = 0; j < atoi(&format_string[i+2]); j++)
 			{
 				if (islower(param[j]))
 				{
@@ -26,7 +30,7 @@ int my_printf(char *format_string, char *param)
 				}
 			}
 
-			i++;
+			i += 3;
 		}
 		else
 			putchar(format_string[i]);

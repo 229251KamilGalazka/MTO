@@ -1,4 +1,4 @@
-totafsdfsf #k fdsfsdf
+totafsdfsf #.7k fdsfsdf
 test
 totafsd#k fdsfsdf fdfjs
 test2
@@ -6,15 +6,15 @@ jfldjfldk # wynik
 test3
 fjdfsfds # k alal
 test4
-djfjkldsjf #k jjjjjj fsfjdljfdlsj flj ldfj
-test5
-gjjkdsljflds #k jdlkfjdslf
-test6
-fjdslkfjdl #k tttttt
-test7
-fjdlsjfkl #k oooolll
-tEsT8
-rwrewrew #k fjdslkjfdl
+djfjkldsjf #.5k jjjjjj fsfjdljfdlsj flj ldfj
+qwertyuiop
+gjjkdsljflds #.4k jdlkfjdslf
+MALELITERY
+fjdslkfjdl #.1k tttttt
+TEST7
+fjdlsjfkl #.k4 oooolll
+test8
+rwrewrew #..k fjdslkjfdl
 test9
-fjdlskjfldjflj #k rewrewrew
-TEST10
+fjdlskjfldjflj #.3k rewrewrew
+TeSt10
