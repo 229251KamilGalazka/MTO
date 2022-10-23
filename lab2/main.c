@@ -4,36 +4,47 @@
 #include <stdlib.h>
 
 int my_printf(char *format_string, char *param) {
-    int type;
-
     for (int i = 0; i < strlen(format_string); i++) {
         if (format_string[i] == '#') {
-            if ((format_string[i + 1] == '.') && isdigit(format_string[i + 2]) && (format_string[i + 3] == 'k'))
-                type = 1;
-            else if (isdigit(format_string[i + 1]) && (format_string[i + 2] == 'k'))
-                type = 2;
-        }
-        if (type == 1) {
-            int len = atoi(&format_string[i + 2]);
-            if (strlen(param) < len)
-                len = strlen(param);
-            for (int j = 0; j < len; j++) {
-                if (islower(param[j])) {
-                    if (isdigit(param[j]))
-                        printf("%c", param[j]);
-                    else
-                        printf("%c", toupper(param[j]));
-                } else {
-                    if (isdigit(param[j]))
-                        printf("%c", param[j]);
-                    else
-                        printf("%c", tolower(param[j]));
+            if ((format_string[i + 1] == '.') && isdigit(format_string[i + 2]) && (format_string[i + 3] == 'k')) {
+                int len = atoi(&format_string[i + 2]);
+                if (strlen(param) < len)
+                    len = strlen(param);
+                for (int j = 0; j < len; j++) {
+                    if (islower(param[j])) {
+                        if (isdigit(param[j]))
+                            printf("%c", param[j]);
+                        else
+                            printf("%c", toupper(param[j]));
+                    } else {
+                        if (isdigit(param[j]))
+                            printf("%c", param[j]);
+                        else
+                            printf("%c", tolower(param[j]));
+                    }
                 }
+
+                i += 3;
+            } else if (isdigit(format_string[i + 1]) && (format_string[i + 2] == 'k')) {
+                int len = atoi(&format_string[i + 2]);
+                if (strlen(param) < len)
+                    len = strlen(param);
+                for (int j = 0; j < len; j++) {
+                    if (islower(param[j])) {
+                        if (isdigit(param[j]))
+                            printf("%c", param[j]);
+                        else
+                            printf("%c", toupper(param[j]));
+                    } else {
+                        if (isdigit(param[j]))
+                            printf("%c", param[j]);
+                        else
+                            printf("%c", tolower(param[j]));
+                    }
+                }
+
+                i += 3;
             }
-
-            i += 3;
-        } else if (type == 2) {
-
         } else
             putchar(format_string[i]);
     }
