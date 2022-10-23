@@ -4,7 +4,15 @@
 #include <stdlib.h>
 
 int my_printf(char *format_string, char *param) {
+    int type;
+
     for (int i = 0; i < strlen(format_string); i++) {
+        if (format_string[i] == '#') {
+            if ((format_string[i + 1] == '.') && isdigit(format_string[i + 2]) && (format_string[i + 3] == 'k'))
+                type = 1;
+            
+        }
+
         if ((format_string[i] == '#') && (format_string[i + 1] == '.') && isdigit(format_string[i + 2]) &&
             (format_string[i + 3] == 'k')) {
             int len = atoi(&format_string[i + 2]);
