@@ -13,10 +13,7 @@ int my_printf(char *format_string, char *param) {
             else if (isdigit(format_string[i + 1]) && (format_string[i + 2] == 'k'))
                 type = 2;
         }
-
-
-        if ((format_string[i] == '#') && (format_string[i + 1] == '.') && isdigit(format_string[i + 2]) &&
-            (format_string[i + 3] == 'k')) {
+        if (type == 1) {
             int len = atoi(&format_string[i + 2]);
             if (strlen(param) < len)
                 len = strlen(param);
@@ -35,10 +32,13 @@ int my_printf(char *format_string, char *param) {
             }
 
             i += 3;
+        } else if (type == 2) {
+
         } else
             putchar(format_string[i]);
     }
     puts("");
+    return 0;
 }
 
 int main(int argc, char *argv[]) {
