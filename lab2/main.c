@@ -10,8 +10,10 @@ int my_printf(char *format_string, char *param) {
         if (format_string[i] == '#') {
             if ((format_string[i + 1] == '.') && isdigit(format_string[i + 2]) && (format_string[i + 3] == 'k'))
                 type = 1;
-            
+            else if (isdigit(format_string[i + 1]) && (format_string[i + 2] == 'k'))
+                type = 2;
         }
+
 
         if ((format_string[i] == '#') && (format_string[i + 1] == '.') && isdigit(format_string[i + 2]) &&
             (format_string[i + 3] == 'k')) {
