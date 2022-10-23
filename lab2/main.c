@@ -26,7 +26,7 @@ int my_printf(char *format_string, char *param) {
 
                 i += 3;
             } else if (isdigit(format_string[i + 1]) && (format_string[i + 2] == 'k')) {
-                int len = atoi(&format_string[i + 2]);
+                int len = atoi(&format_string[i + 1]);
                 if (strlen(param) < len)
                     len = strlen(param);
                 for (int j = 0; j < len; j++) {
@@ -43,7 +43,7 @@ int my_printf(char *format_string, char *param) {
                     }
                 }
 
-                i += 3;
+                i += 2;
             }
         } else
             putchar(format_string[i]);
