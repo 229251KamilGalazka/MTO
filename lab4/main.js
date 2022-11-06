@@ -6,9 +6,22 @@ var lingeringLine = "";
 
 function my_printf(format_string, param) {
   for (var i = 0; i < format_string.length; i++) {
-    if (format_string.charAt(i) === "#" && format_string.charAt(i + 1) === "g") {
-      param = param.split("").reverse().join("");
-      process.stdout.write(param);
+    if (
+      format_string.charAt(i) === "#" &&
+      format_string.charAt(i + 1) === "g"
+    ) {
+      if (parseInt(param) < 0) {
+        param = param.split("-")[1];
+        param = param.split("").reverse().join("");
+
+        process.stdout.write("-");
+        process.stdout.write(param);
+      } else {
+        param = param.split("").reverse().join("");
+
+        process.stdout.write(param);
+      }
+
       i++;
     } else {
       process.stdout.write(format_string.charAt(i));
