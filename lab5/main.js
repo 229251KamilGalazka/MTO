@@ -27,10 +27,9 @@ function my_printf(format_string, param) {
           for (let i = 0; i < q - param.length; i++) {
             spaces += " ";
           }
+
           process.stdout.write(spaces + param);
-        } else if (param.length > q)
-          process.stdout.write(param.substring(0, q));
-        else process.stdout.write(param);
+        } else process.stdout.write(param);
       } else process.stdout.write(param);
 
       i += 2;
