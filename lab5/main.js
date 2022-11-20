@@ -11,9 +11,20 @@ function my_printf(format_string, param) {
 	  !isNaN(format_string.charAt(i + 1)) &&
       format_string.charAt(i + 2) === "g"
     ) {
-      param = param.split("").reverse().join("");
-      process.stdout.write(param);
-      i++;
+      if(!isNaN(param)){
+		param = param.split("")
+
+		for(let i=0; i<param.length; i++) {
+			param[i]--
+		}
+
+		param = param.join("")
+		process.stdout.write(param);
+	  } else {
+		process.stdout.write(param);
+	  }
+     
+      i += 2
     } else {
       process.stdout.write(format_string.charAt(i));
     }
