@@ -23,15 +23,11 @@ function my_printf(format_string, param) {
         param = param.join("");
 
         if (param.length < q) {
-          let spaces = "";
-          for (let i = 0; i < q - param.length; i++) {
-            spaces += " ";
-          }
-
-          process.stdout.write(spaces + param);
-        } else process.stdout.write(param);
-      } else process.stdout.write(param);
-
+          let temp = q - param.length;
+          for (let i = 0; i < temp; i++) param = " " + param;
+        }
+      }
+      process.stdout.write(param);
       i += 2;
     } else {
       process.stdout.write(format_string.charAt(i));
