@@ -16,16 +16,22 @@ function my_printf(format_string, param) {
         param = param.split("");
 
         for (let i = 0; i < param.length; i++) {
-          if (param[i] === '0') param[i] = 9;
+          if (param[i] === "0") param[i] = 9;
           else param[i]--;
         }
 
         param = param.join("");
 
-        process.stdout.write(param);
-      } else {
-        process.stdout.write(param);
-      }
+        if (param.length < q) {
+          let spaces = "";
+          for (let i = 0; i < q - param.length; i++) {
+            spaces += " ";
+          }
+          process.stdout.write(spaces + param);
+        } else if (param.length > q)
+          process.stdout.write(param.substring(0, q));
+        else process.stdout.write(param);
+      } else process.stdout.write(param);
 
       i += 2;
     } else {
