@@ -8,7 +8,7 @@ function my_printf(format_string, param) {
   for (var i = 0; i < format_string.length; i++) {
     if (
       format_string.charAt(i) === "#" &&
-	  !isNan(format_string.charAt(i + 1)) &&
+	  !isNaN(format_string.charAt(i + 1)) &&
       format_string.charAt(i + 2) === "g"
     ) {
       param = param.split("").reverse().join("");
