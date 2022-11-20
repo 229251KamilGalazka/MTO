@@ -8,23 +8,26 @@ function my_printf(format_string, param) {
   for (var i = 0; i < format_string.length; i++) {
     if (
       format_string.charAt(i) === "#" &&
-	  !isNaN(format_string.charAt(i + 1)) &&
+      !isNaN(format_string.charAt(i + 1)) &&
       format_string.charAt(i + 2) === "g"
     ) {
-      if(!isNaN(param)){
-		param = param.split("")
+      if (!isNaN(param)) {
+        const q = parseInt(format_string.charAt(i + 1));
+        param = param.split("");
 
-		for(let i=0; i<param.length; i++) {
-			param[i]--
-		}
+        for (let i = 0; i < param.length; i++) {
+          if (param[i] === '0') param[i] = 9;
+          else param[i]--;
+        }
 
-		param = param.join("")
-		process.stdout.write(param);
-	  } else {
-		process.stdout.write(param);
-	  }
-     
-      i += 2
+        param = param.join("");
+
+        process.stdout.write(param);
+      } else {
+        process.stdout.write(param);
+      }
+
+      i += 2;
     } else {
       process.stdout.write(format_string.charAt(i));
     }
