@@ -9,7 +9,7 @@ function my_printf(format_string, param) {
     if (
       format_string.charAt(i) == "#" &&
       format_string.charAt(i + 1) == "." &&
-      !isNaN(format_string.charAt(i + 2)) &&
+      (!isNaN(format_string.charAt(i + 2)) && format_string.charAt(i + 2) !== ' ') &&
       format_string.charAt(i + 3) == "g"
     ) {
       let char = param.split("");
