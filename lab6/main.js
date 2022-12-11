@@ -9,22 +9,32 @@ function my_printf(format_string, param) {
     if (
       format_string.charAt(i) == "#" &&
       format_string.charAt(i + 1) == "." &&
-      (!isNaN(format_string.charAt(i + 2)) && format_string.charAt(i + 2) !== ' ') &&
+      !isNaN(format_string.charAt(i + 2)) &&
+      format_string.charAt(i + 2) !== " " &&
       format_string.charAt(i + 3) == "g"
     ) {
-      let char = param.split("");
+      if (!isNaN(param)) {
+        const q = parseInt(format_string.charAt(i + 2));
+        param = param.split("");
 
-      char.forEach((letter, index) => {
-        if (!isNaN(letter)) {
-          let number = parseInt(letter);
+        param.forEach((letter, index) => {
+          if (!isNaN(letter)) {
+            let number = parseInt(letter);
 
-          number = (number * 9 + 1) % 10;
+            number = (number * 9 + 1) % 10;
 
-          char[index] = number
+            param[index] = number;
+          }
+        });
+
+        param = param.join("");
+
+        if (param.length < q) {
+          let temp = q - param.length;
+          for (let i = 0; i < temp; i++) param = " " + param;
         }
-      })
-	  char = char.join('')
-      process.stdout.write(char);
+      }
+      process.stdout.write(param);
       i += 3;
     } else {
       process.stdout.write(format_string.charAt(i));
