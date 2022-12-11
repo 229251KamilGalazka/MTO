@@ -14,13 +14,15 @@ function my_printf(format_string, param) {
     ) {
       let char = param.split("");
 
-      for (const letter in char) {
+      char.forEach((letter, index) => {
         if (!isNaN(letter)) {
-          let number = parseInt(char);
+          let number = parseInt(letter);
 
           number = (number * 9 + 1) % 10;
+
+          char[index] = number
         }
-      }
+      })
 	  char = char.join('')
       process.stdout.write(char);
       i += 3;
