@@ -14,7 +14,7 @@ function my_printf(format_string, param) {
       format_string.charAt(i + 3) == "g"
     ) {
       if (!isNaN(param)) {
-        const q = parseInt(format_string.charAt(i + 2));
+        const stringLenght = parseInt(format_string.charAt(i + 2));
         param = param.split("");
 
         param.forEach((char, index) => {
@@ -30,12 +30,12 @@ function my_printf(format_string, param) {
 
         param = param.join("");
 
-        if (param.length > q) {
-          param = param.slice(0, q);
+        if (param.length > stringLenght) {
+          param = param.slice(0, stringLenght);
         }
 
-        if (param.length < q) {
-          let temp = q - param.length;
+        if (param.length < stringLenght) {
+          let temp = stringLenght - param.length;
           for (let i = 0; i < temp; i++) param = " " + param;
         }
       }
