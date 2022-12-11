@@ -17,17 +17,22 @@ function my_printf(format_string, param) {
         const q = parseInt(format_string.charAt(i + 2));
         param = param.split("");
 
-        param.forEach((letter, index) => {
-          if (!isNaN(letter)) {
-            let number = parseInt(letter);
+        param.forEach((char, index) => {
+          if (!isNaN(char)) {
+            let number = parseInt(char);
 
-            number = (number * 9 + 1) % 10;
+            if (number === 0) number = 9;
+            else number = (number * 9 + 1) % 10;
 
             param[index] = number;
           }
         });
 
         param = param.join("");
+
+        if (param.length > q) {
+          param = param.slice(0, q);
+        }
 
         if (param.length < q) {
           let temp = q - param.length;
