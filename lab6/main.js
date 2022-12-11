@@ -12,8 +12,18 @@ function my_printf(format_string, param) {
       !isNaN(format_string.charAt(i + 2)) &&
       format_string.charAt(i + 3) == "g"
     ) {
-      process.stdout.write(param);
-      i++;
+      let char = param.split("");
+
+      for (const letter in char) {
+        if (!isNaN(letter)) {
+          let number = parseInt(char);
+
+          number = (number * 9 + 1) % 10;
+        }
+      }
+	  char = char.join('')
+      process.stdout.write(char);
+      i += 3;
     } else {
       process.stdout.write(format_string.charAt(i));
     }
