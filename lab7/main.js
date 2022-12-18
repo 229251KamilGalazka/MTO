@@ -6,7 +6,21 @@ var lingeringLine = "";
 
 function my_printf(format_string,param){
 	for(var i=0;i<format_string.length;i++){
-		if((format_string.charAt(i) == '#') && (format_string.charAt(i+1) == 'k')){
+		if((format_string.charAt(i) == '#') && (format_string.charAt(i+1) == 'j')){
+
+			param = param.split('')
+
+			for(const char in param){
+				if(isNaN(char)) {
+					switch(char){
+						case A:
+							
+					}
+				}
+			}
+
+
+
 			process.stdout.write(param);
 			i++;
 		}else{
