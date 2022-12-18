@@ -8,33 +8,19 @@ function my_printf(format_string, param) {
   for (var i = 0; i < format_string.length; i++) {
     if (format_string.charAt(i) == "#" && format_string.charAt(i + 1) == "j") {
       if (!isNaN(param)) {
-        let numInHex = Math.abs(param).toString(16);
+        param = Math.abs(param).toString(16).split("");
 
-        let temp = numInHex.split("");
-        temp.forEach((char, index) => {
-          switch (char) {
-            case "a":
-              temp[index] = "g";
-              break;
-            case "b":
-              temp[index] = "h";
-              break;
-            case "c":
-              temp[index] = "i";
-              break;
-            case "d":
-              temp[index] = "j";
-              break;
-            case "e":
-              temp[index] = "k";
-              break;
-            case "f":
-              temp[index] = "l";
-              break;
-          }
-        });
+        for (let k = 0; k < param.length; k++) {
+          if (param[k] === "a") param[k] = "g";
+          if (param[k] === "b") param[k] = "h";
+          if (param[k] === "c") param[k] = "i";
+          if (param[k] === "d") param[k] = "j";
+          if (param[k] === "e") param[k] = "k";
+          if (param[k] === "f") param[k] = "l";
+        }
+        param = param.join("");
 
-        process.stdout.write(temp);
+        process.stdout.write(param);
         i++;
       } else {
         process.stdout.write(param);
