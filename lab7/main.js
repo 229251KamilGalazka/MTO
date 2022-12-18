@@ -9,36 +9,37 @@ function my_printf(format_string, param) {
     if (format_string.charAt(i) == "#" && format_string.charAt(i + 1) == "j") {
       if (!isNaN(param)) {
         let numInHex = Math.abs(param).toString(16);
-        process.stdout.write(numInHex);
-		i++;
+
+        let temp = numInHex.split("");
+        temp.forEach((char, index) => {
+          switch (char) {
+            case "a":
+              temp[index] = "g";
+              break;
+            case "b":
+              temp[index] = "h";
+              break;
+            case "c":
+              temp[index] = "i";
+              break;
+            case "d":
+              temp[index] = "j";
+              break;
+            case "e":
+              temp[index] = "k";
+              break;
+            case "f":
+              temp[index] = "l";
+              break;
+          }
+        });
+
+        process.stdout.write(temp);
+        i++;
       } else {
         process.stdout.write(param);
         i++;
       }
-
-      //   param = param.split("");
-      //   param.forEach((char, index) => {
-      //     switch (char) {
-      //       case "a":
-      //         param[index] = "g";
-      //         break;
-      //       case "b":
-      //         param[index] = "h";
-      //         break;
-      //       case "c":
-      //         param[index] = "i";
-      //         break;
-      //       case "d":
-      //         param[index] = "j";
-      //         break;
-      //       case "e":
-      //         param[index] = "k";
-      //         break;
-      //       case "f":
-      //         param[index] = "l";
-      //         break;
-      //     }
-      //   });
     } else {
       process.stdout.write(format_string.charAt(i));
     }
