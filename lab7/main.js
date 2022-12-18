@@ -19,13 +19,10 @@ function my_printf(format_string, param) {
           if (param[k] === "f") param[k] = "l";
         }
         param = param.join("");
-
-        process.stdout.write(param);
-        i++;
-      } else {
-        process.stdout.write(param);
-        i++;
       }
+
+      process.stdout.write(param);
+      i++;
     } else {
       process.stdout.write(format_string.charAt(i));
     }
