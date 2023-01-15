@@ -28,7 +28,7 @@ function my_printf(format_string, param) {
       }
 
       process.stdout.write(param);
-      i++;
+      i+=3;
     } else {
       process.stdout.write(format_string.charAt(i));
     }
