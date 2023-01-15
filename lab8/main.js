@@ -28,8 +28,7 @@ function my_printf(format_string, param) {
         }
         param = param.join("");
 
-		if(param.length > len)
-			param = param.slice(0,len)
+        if (param.length > len) param = param.slice(0, len);
       }
 
       process.stdout.write(param);
