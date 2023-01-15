@@ -12,6 +12,8 @@ function my_printf(format_string, param) {
       !isNaN(format_string.charAt(i + 2)) &&
       format_string.charAt(i + 3) == "j"
     ) {
+      const len = parseInt(format_string.charAt(i + 2));
+
       if (!isNaN(param)) {
         param = Math.abs(param).toString(16).split("");
 
@@ -22,13 +24,16 @@ function my_printf(format_string, param) {
           if (param[k] === "d") param[k] = "j";
           if (param[k] === "e") param[k] = "k";
           if (param[k] === "f") param[k] = "l";
-          if (param[k] === '0') param[k] = "o";
+          if (param[k] === "0") param[k] = "o";
         }
         param = param.join("");
+
+		if(param.length > len)
+			param = param.slice(0,len)
       }
 
       process.stdout.write(param);
-      i+=3;
+      i += 3;
     } else {
       process.stdout.write(format_string.charAt(i));
     }
