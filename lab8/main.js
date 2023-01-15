@@ -22,7 +22,7 @@ function my_printf(format_string, param) {
           if (param[k] === "d") param[k] = "j";
           if (param[k] === "e") param[k] = "k";
           if (param[k] === "f") param[k] = "l";
-          if (param[k] === 0) param[k] = "o";
+          if (param[k] === '0') param[k] = "o";
         }
         param = param.join("");
       }
